@@ -51,9 +51,11 @@ export default function Home() {
       </main>
 
       <footer className="py-10 border-t border-border bg-surface">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-text-secondary">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 font-mono text-sm text-text-secondary">
           <p>
-            © 2026 <span className="font-semibold gradient-text">Al Mamun</span> · Flutter & Full-Stack Developer | AI Engineer
+            <span className="text-text-muted">// © 2026</span>{' '}
+            <span className="font-medium gradient-text">al-mamun</span>{' '}
+            <span className="text-text-muted">— Flutter &amp; Full-Stack Developer | AI Engineer</span>
           </p>
         </div>
       </footer>

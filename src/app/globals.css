@@ -1,105 +1,142 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: #FFFFFF;
-  --color-surface: #F8FAFC;
-  --color-card: #FFFFFF;
-  --color-border: #E2E8F0;
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #64748B;
-  --color-text-muted: #CBD5E1;
-  --color-primary-accent: #F97316;
-  --color-primary-light: #FFF7ED;
-  --color-secondary-accent: #EA580C;
-  --color-success: #10B981;
+  /* Editor chrome */
+  --color-background: #0A0D12;
+  --color-surface: #0E131A;
+  --color-surface-2: #131A23;
+  --color-card: #0E131A;
+  --color-border: #1D2530;
+  --color-border-strong: #333F4E;
+
+  --color-text-primary: #E6EDF3;
+  --color-text-secondary: #8B949E;
+  --color-text-muted: #545D68;
+
+  /* Syntax-highlight token system, used semantically rather than decoratively:
+     keyword = primary actions / links, type = meta & secondary info,
+     string = success & positive states, const = tags & category chips. */
+  --color-keyword: #FF7B72;
+  --color-type: #79C0FF;
+  --color-string: #7EE787;
+  --color-const: #D2A8FF;
+
+  --color-primary-accent: #FF7B72;
+  --color-primary-light: #1E1512;
+  --color-secondary-accent: #D2A8FF;
+  --color-success: #7EE787;
+
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  position: relative;
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 8% -10%, rgba(255, 123, 114, 0.07), transparent 60%),
+    radial-gradient(800px 480px at 106% 12%, rgba(121, 192, 255, 0.06), transparent 58%),
+    radial-gradient(760px 480px at 50% 110%, rgba(210, 168, 255, 0.05), transparent 60%);
+}
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-surface); }
-::-webkit-scrollbar-thumb { background: var(--color-primary-accent); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-secondary-accent); }
+.font-display {
+  font-family: var(--font-mono);
+}
 
-/* ── Keyframes ─────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+::selection {
+  background: rgba(255, 123, 114, 0.25);
+  color: var(--color-text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---------- Motion ---------- */
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-28px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(28px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
-  to   { opacity: 1; }
+  to { opacity: 1; }
 }
-
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.93); }
-  to   { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
 }
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50%       { transform: translateY(-12px) rotate(1.5deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 0.7; }
+  70% { transform: scale(2.2); opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes caretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
-@keyframes blobPulse {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%       { background-position: 100% 50%; }
-}
-
-@keyframes slideLeft {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(-24px); }
-}
-
-@keyframes slideRight {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(24px); }
-}
-
-/* ── Animation utility classes ───────────────── */
-
-.animate-fade-in-up    { animation: fadeInUp   0.7s cubic-bezier(0.16,1,0.3,1) both; }
-.animate-fade-in       { animation: fadeIn     0.6s ease-out both; }
-.animate-fade-in-left  { animation: fadeInLeft 0.7s cubic-bezier(0.16,1,0.3,1) both; }
-.animate-fade-in-right { animation: fadeInRight 0.7s cubic-bezier(0.16,1,0.3,1) both; }
-.animate-scale-in      { animation: scaleIn    0.5s cubic-bezier(0.16,1,0.3,1) both; }
-.animate-marquee       { animation: marquee 38s linear infinite; }
-.animate-float         { animation: float  8s  ease-in-out infinite; }
-.animate-blob          { animation: blobPulse 10s ease-in-out infinite; }
+.animate-fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-in-left { animation: fadeInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-in-right { animation: fadeInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-in { animation: fadeIn 0.5s ease both; }
+.animate-scale-in { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-float { animation: float 3.5s ease-in-out infinite; }
+.animate-pulse-dot { animation: pulseDot 1.6s cubic-bezier(0, 0, 0.2, 1) infinite; }
 
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
@@ -110,48 +147,48 @@ html, body { height: 100%; }
 .delay-700 { animation-delay: 700ms; }
 .delay-800 { animation-delay: 800ms; }
 
-/* ── Design tokens ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- Editor-craft primitives ---------- */
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary-accent), var(--color-secondary-accent));
+  background: linear-gradient(135deg, var(--color-keyword), var(--color-const));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.gradient-text-animated {
-  background: linear-gradient(135deg, #F97316, #EA580C, #FDBA74, #F97316);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientShift 6s ease infinite;
-}
-
 .gradient-bg {
-  background: linear-gradient(135deg, var(--color-primary-accent) 0%, var(--color-secondary-accent) 100%);
+  background: linear-gradient(135deg, var(--color-keyword) 0%, var(--color-const) 100%);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10, 13, 18, 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
+/* A "code panel": quiet dark surface with a gutter edge, not a uniform
+   rounded glass card. The left edge reads as a file's gutter line and
+   lights up with the keyword accent on hover/focus, standing in for the
+   old blur+shadow treatment. */
 .card {
-  background: var(--color-card);
+  position: relative;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
-  transition: box-shadow 0.3s cubic-bezier(0.16,1,0.3,1),
-              transform   0.3s cubic-bezier(0.16,1,0.3,1),
-              border-color 0.2s ease;
+  border-left: 2px solid var(--color-border-strong);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-
 .card:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.04), 0 16px 40px rgba(249,115,22,0.12);
-  transform: translateY(-3px);
-  border-color: #FED7AA;
+  border-color: var(--color-border-strong);
+  border-left-color: var(--color-keyword);
+  background: var(--color-surface-2);
 }
 
 .tilt-spotlight {
@@ -162,23 +199,27 @@ html, body { height: 100%; }
   border-radius: inherit;
   opacity: 0;
   transition: opacity 0.4s ease;
-  background: radial-gradient(320px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255,255,255,0.35), transparent 60%);
-  mix-blend-mode: overlay;
+  background: radial-gradient(320px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255, 255, 255, 0.06), transparent 60%);
+}
+.group:hover .tilt-spotlight {
+  opacity: 1;
 }
 
-.group:hover .tilt-spotlight { opacity: 1; }
+/* Blinking block cursor used sparingly for the terminal-boot moment. */
+.terminal-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--color-keyword);
+  margin-left: 2px;
+  vertical-align: -0.05em;
+  animation: caretBlink 1s steps(1) infinite;
+}
 
-.section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-primary-accent);
-  background: var(--color-primary-light);
-  padding: 5px 14px;
-  border-radius: 100px;
-  border: 1px solid #FED7AA;
+/* Traffic-light window dots for terminal/editor chrome. */
+.win-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
 }

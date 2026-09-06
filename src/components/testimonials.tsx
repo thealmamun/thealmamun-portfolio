@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import { useInView } from '../hooks/useInView';
+import SectionHeader from './section-header';
 
 const FIVERR_GIG_URL =
   'https://www.fiverr.com/mrhmamun99/develop-ios-and-android-apps-using-flutter-cross-platform';
@@ -109,12 +110,7 @@ const TestimonialsSection = ({ id }: { id: string }) => {
     <section id={id} className="py-24 px-4">
       <div ref={ref} className="max-w-4xl mx-auto">
 
-        <div className={`text-center mb-16 ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <span className="section-tag">Testimonials</span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight">
-            What <span className="gradient-text">Clients Say</span>
-          </h2>
-        </div>
+        <SectionHeader kicker="Testimonials" title="What clients say" meta="4.9★ · 45 reviews on Fiverr" inView={inView} />
 
         <div
           className={inView ? 'animate-scale-in delay-200' : 'opacity-0'}
@@ -159,9 +155,9 @@ const TestimonialsSection = ({ id }: { id: string }) => {
                     <span className="text-sm font-bold text-white select-none">{t.initials}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-text-primary">{t.name}</p>
-                    <p className="text-sm text-text-secondary">
-                      {t.repeatClient ? 'Repeat Client' : 'Verified Buyer'} · {t.location}
+                    <p className="font-medium text-text-primary">{t.name}</p>
+                    <p className="font-mono text-xs text-text-secondary mt-0.5">
+                      // {t.repeatClient ? 'repeat client' : 'verified buyer'} · {t.location}
                     </p>
                   </div>
                 </div>
@@ -208,8 +204,8 @@ const TestimonialsSection = ({ id }: { id: string }) => {
                 aria-current={i === current}
                 className={`p-3 rounded-xl border text-left transition-all duration-200 hover:-translate-y-0.5 ${
                   i === current
-                    ? 'border-primary-accent bg-primary-light shadow-sm'
-                    : 'border-border bg-surface hover:border-orange-200 hover:shadow-sm'
+                    ? 'border-keyword bg-primary-light shadow-sm'
+                    : 'border-border bg-surface hover:border-border-strong hover:shadow-sm'
                 }`}
               >
                 <p className="text-xs font-bold text-text-primary truncate">{t2.name}</p>

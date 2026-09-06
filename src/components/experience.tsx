@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import SectionHeader from './section-header';
 
 const EXPERIENCES = [
   {
@@ -10,6 +11,7 @@ const EXPERIENCES = [
     role: 'Software Engineer',
     type: 'Full-time',
     duration: 'May 2023 – Apr 2026',
+    hash: 'a1e4f9c',
     achievements: [
       'Led Flutter development on EN.Tab, a digital property management platform serving real-estate clients across Germany',
       'Architected real-time data sync and offline-first local database integration, improving reliability for field users',
@@ -19,8 +21,6 @@ const EXPERIENCES = [
     ],
     technologies: ['Flutter', 'Dart', 'Java', 'C#', 'REST APIs', 'Fastlane', 'Azure DevOps', 'CI/CD'],
     impact: 'Production app serving real-estate clients across Germany',
-    gradientFrom: 'from-indigo-500',
-    gradientTo: 'to-violet-500',
   },
   {
     company: 'App-Concept GmbH',
@@ -28,6 +28,7 @@ const EXPERIENCES = [
     role: 'Software Engineer',
     type: 'Werkstudent',
     duration: 'Oct 2021 – Apr 2023',
+    hash: '7c2b8d1',
     achievements: [
       'Built and scaled JobsNavi, a skill-based talent-matching platform, from prototype to live product',
       'Delivered cross-platform Flutter apps for multiple clients across healthcare, recruitment, and other industries',
@@ -36,8 +37,6 @@ const EXPERIENCES = [
     ],
     technologies: ['Flutter', 'Firebase', 'Google Cloud', 'Node.js', 'REST APIs', 'Google Maps SDK', 'Figma'],
     impact: 'Delivered JobsNavi from prototype to live product on App Store and Google Play',
-    gradientFrom: 'from-sky-500',
-    gradientTo: 'to-indigo-500',
   },
   {
     company: 'Royex Technologies',
@@ -45,6 +44,7 @@ const EXPERIENCES = [
     role: 'Jr. Software Engineer – Mobile',
     type: 'Full-time',
     duration: 'Jul 2020 – Jan 2021',
+    hash: '4f0e6a3',
     achievements: [
       'Built Alaasaq, a Magento-backed e-commerce app with full product, cart, and checkout flows in Flutter',
       'Developed Swalifna, a live video streaming app using Agora.io SDK for real-time multi-user broadcast',
@@ -52,8 +52,6 @@ const EXPERIENCES = [
     ],
     technologies: ['Flutter', 'Dart', 'Agora.io', 'Magento APIs', 'Firebase', 'Adobe XD'],
     impact: 'Delivered 3 commercial Flutter apps for clients in UAE and Bangladesh',
-    gradientFrom: 'from-violet-500',
-    gradientTo: 'to-purple-500',
   },
   {
     company: 'Fiverr & Freelance',
@@ -61,6 +59,7 @@ const EXPERIENCES = [
     role: 'Freelance Mobile & Web Developer',
     type: 'Freelance',
     duration: '2019 – 2020',
+    hash: '9d1a2c5',
     achievements: [
       'Delivered 20+ web and mobile development projects for international clients through Fiverr',
       'Built web applications with React and JavaScript for small businesses and startups worldwide',
@@ -69,8 +68,6 @@ const EXPERIENCES = [
     ],
     technologies: ['React', 'JavaScript', 'Flutter', 'React Native', 'Firebase', 'PHP'],
     impact: 'Established client reputation with 20+ delivered projects across multiple countries',
-    gradientFrom: 'from-green-500',
-    gradientTo: 'to-emerald-500',
   },
 ];
 
@@ -78,52 +75,47 @@ const ExperienceSection = ({ id }: { id: string }) => {
   const { ref, inView } = useInView();
 
   return (
-    <section id={id} className="py-24 px-4 bg-surface">
+    <section id={id} className="py-24 px-4">
       <div ref={ref} className="max-w-4xl mx-auto">
 
-        <div className={`text-center mb-16 ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <span className="section-tag">Experience</span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Where I&apos;ve <span className="gradient-text">Worked</span>
-          </h2>
-        </div>
+        <SectionHeader kicker="Experience" title="Where I've worked" meta={`git log --author=me (${EXPERIENCES.length} commits)`} inView={inView} />
 
         <div className="relative">
-          <div className="absolute left-5 top-6 bottom-6 w-px bg-gradient-to-b from-primary-accent via-secondary-accent to-transparent hidden md:block" />
+          {/* The commit graph's spine */}
+          <div className="absolute left-[9px] top-3 bottom-3 w-px bg-border hidden md:block" />
 
-          <div className="space-y-8">
+          <div className="space-y-10">
             {EXPERIENCES.map((exp, i) => (
               <div
                 key={exp.company}
                 className={`relative flex gap-5 ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: `${i * 120}ms` }}
               >
-                <div className="hidden md:flex flex-shrink-0 pt-5">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${exp.gradientFrom} ${exp.gradientTo} flex items-center justify-center shadow-md
-                                    transition-transform duration-300 hover:scale-110 hover:rotate-3`}>
-                    <span className="text-white text-base font-bold">{exp.company[0]}</span>
+                <div className="hidden md:flex flex-shrink-0 pt-1.5 relative z-10">
+                  <div className="w-5 h-5 rounded-full border-2 border-keyword bg-background flex items-center justify-center">
+                    <span className="w-1.5 h-1.5 rounded-full bg-keyword" />
                   </div>
                 </div>
 
                 <div className="group flex-1 card p-6">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                     <div>
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-xl font-bold">{exp.company}</h3>
-                        <span className="px-2 py-0.5 text-xs font-bold bg-surface border border-border text-text-secondary rounded-full">
-                          {exp.type}
-                        </span>
+                      <div className="flex items-center gap-2 flex-wrap font-mono text-xs text-text-muted mb-1.5">
+                        <span className="text-string">{exp.hash}</span>
+                        <span>·</span>
+                        <span>{exp.type}</span>
                       </div>
-                      <p className="text-primary-accent font-semibold">{exp.role}</p>
+                      <h3 className="text-xl font-semibold text-text-primary">{exp.company}</h3>
+                      <p className="text-keyword font-medium">{exp.role}</p>
                       <p className="text-xs text-text-secondary mt-0.5">{exp.location}</p>
                     </div>
-                    <span className="text-sm text-text-secondary font-medium whitespace-nowrap">{exp.duration}</span>
+                    <span className="font-mono text-xs text-text-secondary whitespace-nowrap">{exp.duration}</span>
                   </div>
 
                   <ul className="space-y-2 mb-5">
                     {exp.achievements.map((a, ai) => (
                       <li key={ai} className="flex items-start gap-2 text-sm text-text-secondary">
-                        <span className="text-primary-accent flex-shrink-0 mt-0.5 font-bold">→</span>
+                        <span className="text-string flex-shrink-0 mt-0.5 font-mono">+</span>
                         {a}
                       </li>
                     ))}
@@ -133,15 +125,15 @@ const ExperienceSection = ({ id }: { id: string }) => {
                     {exp.technologies.map((t) => (
                       <span
                         key={t}
-                        className="px-2.5 py-1 bg-surface border border-border text-xs font-medium rounded-lg text-text-secondary
-                                   transition-all duration-200 hover:border-primary-accent hover:text-primary-accent hover:-translate-y-0.5"
+                        className="px-2.5 py-1 bg-surface border border-border text-xs font-mono rounded text-text-secondary
+                                   transition-all duration-200 hover:border-keyword hover:text-keyword"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  <p className="text-sm font-semibold text-success">{exp.impact}</p>
+                  <p className="text-sm font-medium text-string">✓ {exp.impact}</p>
                 </div>
               </div>
             ))}
