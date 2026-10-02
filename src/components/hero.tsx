@@ -204,7 +204,7 @@ const HeroSection = ({ id }: { id: string }) => {
                       fill
                       preload
                       sizes="(min-width: 768px) 288px, 224px"
-                      className="object-cover"
+                      className="object-cover object-[50%_20%]"
                     />
                   </div>
                 </div>
