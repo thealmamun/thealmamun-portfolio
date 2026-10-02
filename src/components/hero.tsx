@@ -131,11 +131,13 @@ const HeroSection = ({ id }: { id: string }) => {
                 </div>
               </div>
 
-              <h1 className={`mt-8 font-display text-3xl sm:text-4xl lg:text-[3.1rem] font-medium leading-[1.14] tracking-tight text-text-primary ${vis('delay-100')}`}>
-                Flutter &amp; Full&#8209;Stack Developer&nbsp;<br className="hidden sm:block" />
-                <span className="text-text-secondary font-medium">|</span> AI Engineer
-                <span className="block mt-2">
-                  Building Production&#8209;Ready Software
+              <h1 className={`mt-8 font-display text-[1.75rem] min-[400px]:text-3xl sm:text-4xl lg:text-[3.1rem] font-medium leading-[1.2] tracking-tight text-text-primary text-balance ${vis('delay-100')}`}>
+                <span className="block">Flutter &amp; Full-Stack Developer</span>
+                <span className="block">
+                  <span className="text-text-secondary font-medium">|</span> AI Engineer
+                </span>
+                <span className="block mt-2 text-[0.8em] sm:text-[1em]">
+                  Building Production-Ready Software
                 </span>
               </h1>
 
