@@ -7,7 +7,6 @@ import PerformanceOptimization from '../components/performance-optimization';
 import ScrollProgress from '../components/scroll-progress';
 import BackToTop from '../components/back-to-top';
 import CommandPalette from '../components/command-palette';
-import ResumeViewer from '../components/resume-viewer';
 
 import HeroSection from '../components/hero';
 import AboutSection from '../components/about';
@@ -35,7 +34,6 @@ export default function Home() {
       <ScrollProgress />
       <Navigation />
       <CommandPalette />
-      <ResumeViewer />
       <BackToTop />
 
       <main>
@@ -55,7 +53,7 @@ export default function Home() {
           <p>
             <span className="text-text-muted">// © 2026</span>{' '}
             <span className="font-medium gradient-text">al-mamun</span>{' '}
-            <span className="text-text-muted">— Flutter &amp; Full-Stack Developer | AI Engineer</span>
+            <span className="text-text-muted">— Software Engineer | Full Stack AI Engineer | Mobile Application Developer (Flutter)</span>
           </p>
         </div>
       </footer>

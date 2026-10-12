@@ -7,7 +7,7 @@ const BADGES = [
   '4+ Years Experience', 'Dresden, Germany', 'Flutter Expert', 'Full-Stack Developer', 'AI Engineer', 'AI Consultant', 'SaaS Founder',
 ];
 
-const STACK = ['flutter', 'nextjs', 'fastapi', 'langchain', 'firebase'];
+const STACK = ['typescript', 'python', 'nextjs', 'react', 'nodejs', 'fastapi', 'langchain', 'rag', 'llms', 'flutter', 'dart', 'firebase', 'gcp', 'docker'];
 
 /** Types one character at a time; calls onDone once, then stays. */
 function useTypewriter(text: string, start: boolean, speed = 28) {
@@ -39,7 +39,7 @@ const HeroSection = ({ id }: { id: string }) => {
   const spotlightRef = useRef<HTMLDivElement>(null);
 
   const cmd = useTypewriter('whoami', loaded, 55);
-  const line1 = useTypewriter('Al Mamun — Flutter & Full-Stack Developer, AI Engineer', cmd.done, 12);
+  const line1 = useTypewriter('Al Mamun — Software Engineer, Full Stack AI Engineer, Mobile Application Developer (Flutter)', cmd.done, 12);
   const line2 = useTypewriter('Dresden, DE · 4+ yrs · building production software', line1.done, 12);
   const line3 = useTypewriter(`const stack = [${STACK.map((s) => `'${s}'`).join(', ')}];`, line2.done, 10);
 
@@ -93,7 +93,7 @@ const HeroSection = ({ id }: { id: string }) => {
           <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
 
             {/* Left: terminal boot + copy */}
-            <div className="flex-1 w-full text-left">
+            <div className="flex-1 w-full text-left @container">
 
               {/* Terminal window — the one orchestrated moment on the page */}
               <div className={`card overflow-hidden max-w-xl ${loaded ? 'animate-scale-in' : 'opacity-0'}`}>
@@ -131,14 +131,14 @@ const HeroSection = ({ id }: { id: string }) => {
                 </div>
               </div>
 
-              <h1 className={`mt-8 font-display text-[1.75rem] min-[400px]:text-3xl sm:text-4xl lg:text-[3.1rem] font-medium leading-[1.2] tracking-tight text-text-primary text-balance ${vis('delay-100')}`}>
-                <span className="block">Flutter &amp; Full-Stack Developer</span>
+              <h1 className={`mt-8 font-display text-[1.75rem] min-[400px]:text-3xl sm:text-[min(3.1rem,4.4cqw)] font-medium leading-[1.2] tracking-tight text-text-primary text-balance ${vis('delay-100')}`}>
                 <span className="block">
-                  <span className="text-text-secondary font-medium">|</span> AI Engineer
+                  Software Engineer <span className="text-text-secondary font-medium">|</span>
                 </span>
-                <span className="block mt-2 text-[0.8em] sm:text-[1em]">
-                  Building Production-Ready Software
+                <span className="block">
+                  Full Stack AI Engineer <span className="text-text-secondary font-medium">|</span>
                 </span>
+                <span className="block sm:whitespace-nowrap">Mobile Application Developer (Flutter)</span>
               </h1>
 
               <p className={`mt-6 text-lg md:text-xl text-text-secondary max-w-xl leading-relaxed ${vis('delay-200')}`}>
@@ -164,20 +164,6 @@ const HeroSection = ({ id }: { id: string }) => {
                 >
                   cd ./projects
                 </a>
-                <a
-                  href="/Al-Mamun-FullStack-CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.dispatchEvent(new CustomEvent('open-resume-viewer'));
-                  }}
-                  className="group px-2 py-3.5 font-mono text-sm font-medium text-text-secondary
-                             inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-keyword"
-                >
-                  resume.pdf
-                  <span aria-hidden className="transition-transform duration-200 group-hover:translate-y-0.5">↓</span>
-                </a>
               </div>
 
               <div className={`mt-8 flex flex-wrap gap-2 justify-start ${vis('delay-400')}`}>
@@ -202,7 +188,7 @@ const HeroSection = ({ id }: { id: string }) => {
                   <div className="relative w-full h-full rounded-full overflow-hidden border border-border-strong">
                     <Image
                       src="/al-mamun-photo.jpg"
-                      alt="Al Mamun — Flutter & Full-Stack Developer | AI Engineer"
+                      alt="Al Mamun — Software Engineer | Full Stack AI Engineer | Mobile Application Developer (Flutter)"
                       fill
                       preload
                       sizes="(min-width: 768px) 288px, 224px"

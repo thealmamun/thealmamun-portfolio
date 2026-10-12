@@ -6,7 +6,7 @@ const StructuredData = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Al Mamun",
-    "jobTitle": "Flutter Developer, AI Consultant & Full-Stack Developer",
+    "jobTitle": "Software Engineer, Full Stack AI Engineer & Mobile Application Developer (Flutter)",
     "url": "https://thealmamun.com",
     "sameAs": [
       "https://linkedin.com/in/thealmamun",

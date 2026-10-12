@@ -9,7 +9,7 @@ const META = [
   { label: 'Visa',        value: '18G – Open to roles across Germany' },
   { label: 'Degree',      value: "M.Sc. Web Engineering (2021–2026)" },
   { label: 'University',  value: 'TU Chemnitz, Germany' },
-  { label: 'Languages',   value: 'English (B2) · German (A2-B1) · Bengali (Native)' },
+  { label: 'Languages',   value: 'English (C1) · German (B1-B2) · Bengali (Native)' },
   { label: 'Nationality', value: 'Bangladeshi' },
   { label: 'Availability', value: 'Open to full-time roles & freelance projects' },
 ];
@@ -35,7 +35,7 @@ const AboutSection = ({ id }: { id: string }) => {
           {/* Bio */}
           <div className={inView ? 'animate-fade-in-left delay-200' : 'opacity-0'}>
             <p className="text-lg text-text-secondary leading-relaxed mb-5">
-              I&apos;m a <strong className="text-text-primary font-medium">Flutter & Full-Stack Developer and AI Engineer</strong> based
+              I&apos;m a <strong className="text-text-primary font-medium">Software Engineer, Full Stack AI Engineer, and Mobile Application Developer (Flutter)</strong> based
               in <strong className="text-text-primary font-medium">Dresden, Germany</strong>, with 4+ years of experience
               delivering production-ready software for companies in Germany, UAE, and Bangladesh.
             </p>

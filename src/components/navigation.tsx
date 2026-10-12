@@ -98,12 +98,6 @@ const Navigation = () => {
 
           <div className="hidden md:flex items-center gap-1 pl-2 flex-shrink-0 ml-auto">
             <button
-              onClick={() => window.dispatchEvent(new CustomEvent('open-resume-viewer'))}
-              className="px-3 py-1.5 rounded text-xs font-mono text-text-secondary hover:text-type transition-colors duration-150"
-            >
-              resume.pdf
-            </button>
-            <button
               onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
               aria-label="Open command menu"
               className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded border border-border text-xs font-mono
@@ -163,15 +157,6 @@ const Navigation = () => {
                 </Link>
               );
             })}
-            <button
-              onClick={() => {
-                setOpen(false);
-                window.dispatchEvent(new CustomEvent('open-resume-viewer'));
-              }}
-              className="block w-full text-left px-3 py-2.5 rounded text-text-secondary hover:text-keyword hover:bg-surface/60 transition-all"
-            >
-              resume.pdf
-            </button>
             <a
               href="https://www.fiverr.com/users/mrhmamun99/"
               target="_blank"

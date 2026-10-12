@@ -41,23 +41,6 @@ const CommandPalette = () => {
       action: () => goTo(s.id),
     })),
     {
-      id: 'view-resume',
-      label: 'View resume',
-      hint: 'PDF viewer',
-      action: () => window.dispatchEvent(new CustomEvent('open-resume-viewer')),
-    },
-    {
-      id: 'download-resume',
-      label: 'Download resume',
-      hint: '.pdf',
-      action: () => {
-        const a = document.createElement('a');
-        a.href = '/Al-Mamun-FullStack-CV.pdf';
-        a.download = 'Al-Mamun-FullStack-CV.pdf';
-        a.click();
-      },
-    },
-    {
       id: 'email',
       label: 'Email Al Mamun',
       hint: 'mailto',

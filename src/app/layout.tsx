@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Al Mamun | Flutter Developer & AI Consultant in Dresden, Germany",
+  title: "Al Mamun | Software Engineer | Full Stack AI Engineer | Mobile Application Developer (Flutter)",
   description: "Flutter developer, AI engineer, AI consultant, and full-stack developer based in Dresden, Germany. Building production-ready mobile apps, RAG/LLM systems, and scalable SaaS platforms for clients in Germany and worldwide.",
   keywords: [
     "Al Mamun",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   publisher: "Al Mamun",
   robots: "index, follow",
   openGraph: {
-    title: "Al Mamun | Flutter Developer & AI Consultant in Dresden, Germany",
+    title: "Al Mamun | Software Engineer | Full Stack AI Engineer | Mobile Application Developer (Flutter)",
     description: "Flutter developer, AI engineer, AI consultant, and full-stack developer based in Dresden, Germany. Building production-ready mobile apps, RAG/LLM systems, and scalable SaaS platforms for clients in Germany and worldwide.",
     url: "https://thealmamun.com",
     siteName: "Al Mamun",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Al Mamun - Flutter Developer & AI Consultant in Dresden, Germany"
+        alt: "Al Mamun - Software Engineer | Full Stack AI Engineer | Mobile Application Developer (Flutter)"
       }
     ],
     locale: "en_US",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Al Mamun | Flutter Developer & AI Consultant in Dresden, Germany",
+    title: "Al Mamun | Software Engineer | Full Stack AI Engineer | Mobile Application Developer (Flutter)",
     description: "Flutter developer, AI engineer, AI consultant, and full-stack developer based in Dresden, Germany. Building production-ready mobile apps, RAG/LLM systems, and scalable SaaS platforms for clients in Germany and worldwide.",
     images: ["/og-image.jpg"],
     creator: "@thealmamun"
